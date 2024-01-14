@@ -22,7 +22,7 @@ public final class ClickMinecart extends JavaPlugin implements Listener {
     @EventHandler(ignoreCancelled = true)
     public void onPlayerInteractEvent(PlayerInteractEvent event) {
         if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
-            event.setCancelled(true);
+
         } else {
             Location loc = event.getClickedBlock().getLocation();
             if (loc.getBlock().getType().equals(Material.RAIL)) {
