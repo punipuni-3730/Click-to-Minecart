@@ -21,11 +21,11 @@ public final class ClickMinecart extends JavaPlugin implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onPlayerInteractEvent(PlayerInteractEvent event) {
+        Location loc = event.getClickedBlock().getLocation();
+        if (loc.getBlock().getType().equals(Material.RAIL)) {
         if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
-
+                event.getClickedBlock().breakNaturally();
         } else {
-            Location loc = event.getClickedBlock().getLocation();
-            if (loc.getBlock().getType().equals(Material.RAIL)) {
                 Player player = event.getPlayer();
                 World world = Bukkit.getServer().getWorld("world");
                 Entity minecart = world.spawnEntity(loc, EntityType.MINECART);
