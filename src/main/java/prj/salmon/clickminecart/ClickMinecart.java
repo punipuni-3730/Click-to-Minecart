@@ -1,9 +1,6 @@
 package prj.salmon.clickminecart;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -21,12 +18,16 @@ public final class ClickMinecart extends JavaPlugin implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onPlayerInteractEvent(PlayerInteractEvent event) {
+        Player player = event.getPlayer();
         Location loc = event.getClickedBlock().getLocation();
         if (loc.getBlock().getType().equals(Material.RAIL)) {
         if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
+            if (player.getGameMode() == GameMode.SURVIVAL){
+                event.getClickedBlock().breakNaturally();
+            } else {
                 loc.getBlock().setType(Material.AIR);
+            }
         } else {
-                Player player = event.getPlayer();
                 World world = Bukkit.getServer().getWorld("world");
                 Entity minecart = world.spawnEntity(loc, EntityType.MINECART);
                 minecart.addPassenger(player);
@@ -34,3 +35,6 @@ public final class ClickMinecart extends JavaPlugin implements Listener {
         }
     }
 }
+
+//やったこと
+//
