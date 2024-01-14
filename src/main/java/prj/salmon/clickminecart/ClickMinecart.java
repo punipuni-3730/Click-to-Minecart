@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -23,11 +22,10 @@ public final class ClickMinecart extends JavaPlugin implements Listener {
     @EventHandler(ignoreCancelled = true)
     public void onPlayerInteractEvent(PlayerInteractEvent event){
         Location loc = event.getClickedBlock().getLocation();
-        Action action = event.getAction();
-        Player player = event.getPlayer();
-        Block block = event.getClickedBlock();
-        if (action.equals(Action.LEFT_CLICK_BLOCK)) {
-            if (block.getType().equals(Material.RAIL)) {
+        if(loc.getBlock().getType().equals(Material.RAIL)){
+            Action action = event.getAction();
+            Player player = event.getPlayer();
+            if (action.equals(Action.LEFT_CLICK_BLOCK)){
             World world = Bukkit.getServer().getWorld("world");
             Entity minecart = world.spawnEntity(loc, EntityType.MINECART);
             minecart.addPassenger(player);
