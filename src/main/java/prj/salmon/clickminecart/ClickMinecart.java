@@ -24,7 +24,7 @@ public final class ClickMinecart extends JavaPlugin implements Listener {
         Location loc = event.getClickedBlock().getLocation();
         if (loc.getBlock().getType().equals(Material.RAIL)) {
         if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
-                event.getClickedBlock().breakNaturally();
+                loc.getBlock().setType(Material.AIR);
         } else {
                 Player player = event.getPlayer();
                 World world = Bukkit.getServer().getWorld("world");
