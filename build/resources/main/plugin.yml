@@ -1,0 +1,4 @@
+name: ClickMinecart
+version: '1.0-SNAPSHOT'
+main: prj.salmon.clickminecart.ClickMinecart
+api-version: '1.20'
