@@ -1,5 +1,5 @@
-ClickMinecart
-レールをクリックするとトロッコが出現します
+Click to Minecart
+レールをクリックするとトロッコが出現するプラグイン
 
 Ver:1.20.4
 
