@@ -30,7 +30,7 @@ public final class ClickMinecart extends JavaPlugin implements Listener {
             if (player.getItemInHand().getType() == Material.AIR) {
                 if (loc.getBlock().getType().equals(Material.RAIL) ||loc.getBlock().getType().equals(Material.POWERED_RAIL)) {
                     if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-                        World world = Bukkit.getServer().getWorld("world");
+                        World world = player.getWorld();
                         Entity minecart = world.spawnEntity(loc, EntityType.MINECART);
                         minecart.addScoreboardTag("cminecart");
                         minecart.addPassenger(player);
